@@ -7,7 +7,7 @@ import { addItem } from './CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false);
-    const [addedToCart, setAddedToCart] = useState({}); // ✅ Single declaration at top
+    const [addedToCart, setAddedToCart] = useState({}); 
 
     const cart = useSelector((state => state.cart.items));
     const dispatch = useDispatch();
@@ -333,9 +333,7 @@ function ProductList({ onHomeClick }) {
                                         />
                                         <div className="product-title">{plant.name}</div>
                                         <div className="product-description">{plant.description}</div>
-                                        {/* ✅ Fix 3 - removed extra '$' prefix */}
                                         <div className="product-cost">{plant.cost}</div>
-                                        {/* ✅ Fix 4 - button now disables and changes label */}
                                         <button
                                             className={`product-button ${addedToCart[plant.name] ? 'added' : ''}`}
                                             onClick={() => handleAddToCart(plant)}
@@ -348,7 +346,7 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </div>
                     ))}
-                </div> {/* ✅ Fix 6 - closing div for product-grid added */}
+                </div> 
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />
             )}
