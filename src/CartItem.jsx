@@ -33,16 +33,6 @@ const CartItem = ({ onContinueShopping }) => {
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
-
-
-  const handleDecrement = (item) => {
-    if (item.quantity > 1) {
-      dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
-    } else {
-      dispatch(removeItem({ name: item.name }));
-    }
-  };
-
   
   const handleRemove = (item) => {
     dispatch(removeItem({ name: item.name }));
@@ -53,6 +43,14 @@ const CartItem = ({ onContinueShopping }) => {
     const price = parseFloat(item.cost.substring(1));    // Convert "$15" → 15
     return (price * item.quantity).toFixed(2);           // Multiply and return
   };
+
+  const handleDecrement = (item) => {
+    if (item.quantity > 1 ){
+      dispatch(updateQuantity({ name: item.name, quantity: item.quantity -1 }))
+    } else {
+      dispatch(removeItem({ name: item.name }));
+    }
+  }
 
   return (
     <div className="cart-container">
