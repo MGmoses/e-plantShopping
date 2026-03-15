@@ -40,8 +40,8 @@ const CartItem = ({ onContinueShopping }) => {
 
   
   const calculateTotalCost = (item) => {
-    const price = parseFloat(item.cost.substring(1));    // Convert "$15" → 15
-    return (price * item.quantity).toFixed(2);           // Multiply and return
+    const price = parseFloat(item.cost.substring(1));    
+    return (price * item.quantity).toFixed(2);           
   };
 
   const handleDecrement = (item) => {
